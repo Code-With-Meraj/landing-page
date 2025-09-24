@@ -104,7 +104,6 @@ const ProductCard = ({ product }: { product: Product }) => {
                   </RadioGroup>
                 </div>
 
-                {/* Crust */}
                 <div>
                   <h4 className="mt-6">Choose the crust</h4>
                   <RadioGroup
@@ -117,7 +116,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                         <RadioGroupItem
                           value={value}
                           id={value}
-                          className="peer sr-only"
+                          className="peer-only"
                           aria-label={value}
                         />
                         <Label

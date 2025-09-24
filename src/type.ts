@@ -19,6 +19,12 @@ export type Product = {
   image: string;
   price: number;
 };
+ export  type CartItem = {
+  product: Product;
+  size: string;
+  crust: string;
+  toppings: Topping[];
+};
 
 export type PropTypes = {
   product: Product;
