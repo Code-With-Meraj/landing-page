@@ -1,8 +1,10 @@
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";import ProductCard from '../../components/custom/product-card';
-import { Product } from '@/type'; 
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ProductCard from "../../components/custom/product-card";
+import { Product } from "@/type";
 
- const products: Product[] = [
+const products: Product[] = [
   {
     id: "1",
     name: "Margarita Pizza",
@@ -22,7 +24,7 @@ import { Product } from '@/type';
     name: "Margarita Pizza",
     description: "This is a very tasty pizza",
     image: "/pizza-main.png",
-    price: 500
+    price: 500,
   },
   {
     id: "4",
@@ -37,7 +39,45 @@ import { Product } from '@/type';
     description: "This is a very tasty pizza",
     image: "/pizza-main.png",
     price: 500,
-  }
+  },
+];
+
+const beveragers: Product[] = [
+  {
+    id: "b1",
+    name: "Cold Coffee",
+    description: "Chilled cold coffee",
+    image: "/beverages/cold-coffee.png",
+    price: 100,
+  },
+  {
+    id: "b2",
+    name: "Pepsi",
+    description: "Refreshing soda drink",
+    image: "/beverages/lime-water.jpg",
+    price: 100,
+  },
+  {
+    id: "b3",
+    name: "Mixed-Fruits",
+    description: "Iced mixed-fruits with cream",
+    image: "/beverages/mixed-fruits.jpg",
+    price: 150,
+  },
+  {
+    id: "b4",
+    name: "Lemonade",
+    description: "Fresh lemon drink",
+    image: "/beverages/mixed-lime.jpg",
+    price: 80,
+  },
+  {
+    id: "b5",
+    name: "Orange Juice",
+    description: "Natural fresh orange juice",
+    image: "/beverages/mixed-cold.png",
+    price: 120,
+  },
 ];
 
 export default function Home() {
@@ -58,8 +98,8 @@ export default function Home() {
             </Button>
           </div>
           <div>
-            <img
-              src="/pizza-main.png"
+            <Image
+              src="/pizza-main.png" 
               alt="Pizza-main"
               width={400}
               height={400}
@@ -70,25 +110,37 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="container px-4 sm:px-6 lg:px-12 py-8 "> 
+        <div className="w-full px-4 sm:px-6 lg:px-12 py-8">
           <Tabs defaultValue="pizza">
             <TabsList>
-              <TabsTrigger value="pizza" className="text-sm sm:text-md">Pizza</TabsTrigger>
-              <TabsTrigger value="beveragers" className="text-sm sm:text-md">Beveragers</TabsTrigger>
+              <TabsTrigger value="pizza" className="text-sm sm:text-md">
+                Pizza
+              </TabsTrigger>
+              <TabsTrigger value="beveragers" className="text-sm sm:text-md">
+                Beveragers
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="pizza">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4 ">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4">
                 {products.map((product) => (
-                  <ProductCard product={product} key={product.id} />
+                  <ProductCard
+                    product={product}
+                    type="pizza"
+                    key={product.id}
+                  />
                 ))}
               </div>
             </TabsContent>
 
             <TabsContent value="beveragers">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4 ">
-                {products.map((product) => (
-                  <ProductCard product={product} key={product.id} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4">
+                {beveragers.map((product) => (
+                  <ProductCard
+                    product={product}
+                    type="beverager"
+                    key={product.id}
+                  />
                 ))}
               </div>
             </TabsContent>

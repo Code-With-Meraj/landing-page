@@ -40,7 +40,7 @@ const ToppingList: React.FC<ToppingListProps> = ({
     const exists = selectedToppings.some((el) => el.id === topping.id);
     if (exists) {
       setSelectedToppings((prev) =>
-        prev.filter((el) => el.id === topping.id)
+        prev.filter((el) => el.id !== topping.id)
       );
     } else {
       setSelectedToppings((prev) => [...prev, topping]);
@@ -50,7 +50,7 @@ const ToppingList: React.FC<ToppingListProps> = ({
   return (
     <section className="mt-6">
       <h3>Extra toppings</h3>
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-3 gap-4 mt-2">
         {toppings.map((topping) => (
           <ToppingCard
             key={topping.id}
