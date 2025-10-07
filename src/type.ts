@@ -1,4 +1,3 @@
-
 export interface Topping {
   id: string;
   name: string;
@@ -7,25 +6,41 @@ export interface Topping {
   isAvailable: boolean;
 }
 
-export type PropType = {
-  topping: Topping;
-  selectedToppings: Topping[];
-  handleCheckBoxCheck: (topping: Topping) => void;
-};
 export type Product = {
   id: string;
   name: string;
   description: string;
   image: string;
   price: number;
-};
- export  type CartItem = {
-  product: Product;
-  size: string;
-  crust: string;
-  toppings: Topping[];
+  height?: number;
+  width?: number;
 };
 
-export type PropTypes = {
+export type Beverager = {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
+  height?: number;
+  width?: number;
+};
+
+
+export type CartItem = {
   product: Product;
+  size?: string;   
+  crust?: string;  
+  toppings?: Topping[]; 
+};
+
+export type ProductCardProps = {
+  product: Product;
+  type: "pizza" | "beverage"; 
+};
+
+export type PropType = {
+  topping: Topping;
+  selectedToppings: Topping[];
+  handleCheckBoxCheck: (topping: Topping) => void;
 };
